@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Norman Luxury Limousine & Tours • Premium Rates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .heading-serif { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.05; }
+    .gold-text { color: #C5A572; }
+    .nav-link { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .nav-link:hover { color: #C5A572; transform: translateY(-1px); }
+    .price-card { transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .price-card:hover { transform: translateY(-8px); }
+    .nav-scrolled {
+        background-color: #09090b;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+    }
+    #mobile-menu {
+        animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .field {
+        width: 100%;
+        background: #18181b;
+        border: 1px solid rgb(255 255 255 / 0.2);
+        border-radius: 1rem;
+        padding: 0.85rem 1.25rem;
+        color: #fff;
+        outline: none;
+    }
+    .field:focus { border-color: #fbbf24; }
+</style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-screen-2xl mx-auto">
+        <div class="px-5 md:px-8 py-5 flex items-center justify-between">
+            <a href="#top" class="flex items-center gap-x-3">
+                <img src="logo.png" alt="Lake Norman Luxury Limousine & Tours" class="h-14 w-auto">
+                <div class="hidden md:block">
+                    <span class="font-bold text-2xl tracking-tighter">LAKE NORMAN</span>
+                    <span class="block text-[10px] text-amber-300 tracking-[2.5px] -mt-1 font-medium">LUXURY LIMOUSINE & TOURS</span>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="#airport" class="nav-link text-white/90 hover:text-white">Airport</a>
+                <a href="#rates" class="nav-link text-white/90 hover:text-white">Rates</a>
+                <a href="#services" class="nav-link text-white/90 hover:text-white">Services</a>
+                <a href="#quote" class="nav-link text-white/90 hover:text-white">Get Quote</a>
+                <a href="#about" class="nav-link text-white/90 hover:text-white">About</a>
+            </div>
+            <div class="flex items-center gap-x-4">
+               <a onclick="copyPhoneNumber()" class="hidden md:flex items-center gap-x-2 text-sm font-medium hover:text-amber-300 transition-colors cursor-pointer">
+                    <i class="fas fa-phone text-amber-400"></i>
+                    <span>980-457-5522</span>
+                </a>
+                <button onclick="showBookingModal()" class="px-6 py-2.5 bg-white text-zinc-950 hover:bg-amber-300 transition-all font-semibold text-sm rounded-3xl flex items-center gap-x-2 shadow-lg">
+                    <span>Reserve Now</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center text-white hover:bg-white/10 rounded-2xl">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="mobile-menu" class="hidden md:hidden fixed top-[73px] left-0 right-0 bg-zinc-950 border-t border-white/10 py-8 px-8 z-50">
+    <div class="flex flex-col gap-y-6 text-lg font-medium">
+        <a href="#airport" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="nav-link text-white/90 hover:text-white">Airport</a>
+        <a href="#rates" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="nav-link text-white/90 hover:text-white">Rates</a>
+        <a href="#services" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="nav-link text-white/90 hover:text-white">Services</a>
+        <a href="#quote" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="nav-link text-white/90 hover:text-white">Get Quote</a>
+        <a href="#about" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="nav-link text-white/90 hover:text-white">About</a>
+        <div class="pt-6 border-t border-white/10">
+            <a onclick="copyPhoneNumber()" class="flex items-center gap-x-3 text-amber-300 text-xl font-semibold cursor-pointer">
+                <i class="fas fa-phone"></i>
+                <span>980-457-5522</span>
+            </a>
+        </div>
+        <button onclick="showBookingModal(); document.getElementById('mobile-menu').classList.add('hidden')"
+                class="mt-4 w-full py-4 bg-white text-zinc-950 font-semibold rounded-3xl">
+            Reserve Now
+        </button>
+    </div>
+</div>
+<header id="top" class="hero-bg min-h-screen flex items-center relative pt-16"
+        style="background-image: linear-gradient(rgba(10, 10, 10, 0.68), rgba(10, 10, 10, 0.82)), url('hero.jpg'); background-size: cover; background-position: center;">
+    <div class="max-w-screen-2xl mx-auto px-5 md:px-8 pt-16 md:pt-0">
+        <div class="max-w-4xl">
+            <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl px-5 py-1.5 mb-8">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span class="uppercase tracking-[2px] text-xs font-semibold">Lake Norman & Charlotte’s Premier Choice</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[78px] leading-[0.95] font-bold tracking-tighter heading-serif">
+                Executive Ground Transportation<br>
+                <span class="gold-text">Done Right.</span>
+            </h1>
+            <p class="max-w-2xl mt-6 text-xl text-white/90">
+                Lake Norman Luxury Limousine and Tours is both Lake Norman’s and Charlotte’s premier choice for executive ground transportation and airport black car service.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-10">
+                <button onclick="document.getElementById('airport').scrollIntoView({ behavior: 'smooth' })"
+                        class="px-10 py-4 bg-white hover:bg-amber-300 transition-all text-zinc-950 font-semibold rounded-3xl flex items-center gap-x-3 text-lg shadow-2xl">
+                    <span>Book airport transfer</span>
+                </button>
+                <button onclick="document.getElementById('rates').scrollIntoView({ behavior: 'smooth' })" class="px-8 py-4 border border-white/40 hover:bg-white/5 transition-all rounded-3xl flex items-center gap-x-3 text-lg font-medium">
+                    <span>View Our Rates</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="airport" class="max-w-screen-2xl mx-auto px-5 md:px-8 py-24">
+    <div class="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 to-zinc-950 border border-amber-400/30 rounded-3xl p-8 md:p-12 text-center mb-16">
+        <div class="inline-flex items-center gap-x-3 bg-amber-900/40 text-amber-400 px-6 py-2 rounded-3xl text-sm font-semibold tracking-wider mb-6">
+            <i class="fas fa-gem"></i>
+            <span>EXCLUSIVE OFFER</span>
+        </div>
+        <h3 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">Flat Rate Airport Transfers</h3>
+        <p class="max-w-2xl mx-auto text-lg md:text-xl text-white/90">
+            For <span class="font-semibold text-amber-400">Lake Norman and Charlotte residents</span> only — one price, no mileage fees. Pay 50% to reserve, or pay in full.
+        </p>
+        <div class="mt-8 grid sm:grid-cols-3 gap-4 text-left">
+            <div class="bg-white/5 rounded-2xl p-5">
+                <div class="text-xs tracking-wider text-white/50">CLT</div>
+                <div class="text-3xl font-bold mt-1">$120</div>
+                <div class="text-sm text-white/60 mt-1">Charlotte Douglas · $60 or $120</div>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5">
+                <div class="text-xs tracking-wider text-white/50">GSO</div>
+                <div class="text-3xl font-bold mt-1">$360</div>
+                <div class="text-sm text-white/60 mt-1">Greensboro · $180 or $360</div>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5">
+                <div class="text-xs tracking-wider text-white/50">RDU</div>
+                <div class="text-3xl font-bold mt-1">$580</div>
+                <div class="text-sm text-white/60 mt-1">Raleigh-Durham · $290 or $580</div>
+            </div>
+        </div>
+        <p class="mt-8 text-sm text-white/60">Pickup in under one hour? Text or call <a href="tel:9804575522" class="text-amber-300">980-457-5522</a>. Hourly and event trips use the quote form below.</p>
+    </div>
+
+    <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+            <p class="text-xs font-semibold tracking-[3px] text-amber-400">BOOK YOUR AIRPORT TRANSFER</p>
+            <h3 class="heading-serif mt-3 text-3xl md:text-5xl tracking-tighter">Pay 50% now. Ride later.</h3>
+            <p class="mt-4 text-lg text-white/80">Pay 50% to reserve, or pay in full online. If you pay a deposit, the balance is due to your chauffeur. All other trips stay on the quote form.</p>
+            <ul id="airport-price-list" class="mt-8 space-y-3 text-sm text-white/80"></ul>
+        </div>
+        <form id="airport-form" class="space-y-5 rounded-3xl border border-white/10 bg-zinc-950 p-6 md:p-8" onsubmit="return false;">
+            <div id="airport-success" class="hidden text-center py-6">
+                <p id="airport-success-kicker" class="text-xs font-semibold tracking-[3px] text-emerald-400">DEPOSIT RECEIVED</p>
+                <h3 class="heading-serif mt-3 text-4xl tracking-tighter">You're reserved.</h3>
+                <p id="airport-success-copy" class="mx-auto mt-4 max-w-md text-white/70"></p>
+                <p id="airport-success-code" class="mt-6 font-mono text-lg tracking-widest text-amber-300"></p>
+                <p class="mt-6 text-sm text-white/50">Questions? Call <a href="tel:9804575522" class="text-amber-300">980-457-5522</a>.</p>
+            </div>
+            <div id="airport-fields">
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">FIRST NAME *</label>
+                        <input class="field" id="af-first" autocomplete="given-name" required>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">LAST NAME *</label>
+                        <input class="field" id="af-last" autocomplete="family-name" required>
+                    </div>
+                </div>
+                <div class="grid gap-4 md:grid-cols-2 mt-5">
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">PHONE *</label>
+                        <input class="field" id="af-phone" type="tel" required>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">EMAIL *</label>
+                        <input class="field" id="af-email" type="email" required>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">PICKUP ADDRESS *</label>
+                    <input class="field" id="af-pickup" placeholder="Street, city — Lake Norman or Charlotte" required>
+                </div>
+                <div class="grid gap-4 md:grid-cols-2 mt-5">
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">AIRPORT *</label>
+                        <select class="field" id="af-airport" required>
+                            <option value="CLT">Charlotte Douglas (CLT) — $120</option>
+                            <option value="GSO">Greensboro (GSO) — $360</option>
+                            <option value="RDU">Raleigh-Durham (RDU) — $580</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">DIRECTION *</label>
+                        <select class="field" id="af-direction" required>
+                            <option value="to_airport">To the airport</option>
+                            <option value="from_airport">From the airport</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid gap-4 md:grid-cols-3 mt-5">
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">DATE *</label>
+                        <input class="field" id="af-date" type="date" required>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">PICKUP TIME *</label>
+                        <input class="field" id="af-time" type="time" required>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">PASSENGERS *</label>
+                        <input class="field" id="af-pax" type="number" min="1" max="8" value="1" required>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">FLIGHT NUMBER (OPTIONAL)</label>
+                    <input class="field" id="af-flight" placeholder="AA 1234">
+                </div>
+                <div class="mt-5">
+                    <label class="mb-2 block text-xs font-semibold tracking-wider text-white/70">NOTES (OPTIONAL)</label>
+                    <textarea class="field min-h-20" id="af-notes"></textarea>
+                </div>
+                <div class="mt-5">
+                    <p class="mb-2 block text-xs font-semibold tracking-wider text-white/70">PAYMENT *</p>
+                    <div class="grid gap-3 sm:grid-cols-2">
+                        <button type="button" id="pay-deposit" class="rounded-2xl border border-amber-400 bg-amber-400/10 p-4 text-left" onclick="setPayChoice('deposit')">
+                            <div class="text-sm font-semibold">50% deposit</div>
+                            <div id="pay-deposit-amt" class="mt-1 text-2xl font-bold">$60.00</div>
+                            <div class="mt-1 text-xs text-white/50">Balance due to chauffeur</div>
+                        </button>
+                        <button type="button" id="pay-full" class="rounded-2xl border border-white/15 bg-zinc-900 p-4 text-left" onclick="setPayChoice('full')">
+                            <div class="text-sm font-semibold">Pay in full</div>
+                            <div id="pay-full-amt" class="mt-1 text-2xl font-bold">$120.00</div>
+                            <div class="mt-1 text-xs text-white/50">Nothing due later</div>
+                        </button>
+                    </div>
+                </div>
+                <div id="too-soon" class="hidden mt-5 rounded-2xl border border-amber-400/40 bg-amber-900/20 p-4 text-sm text-amber-100">
+                    Pickup is less than one hour away. Online checkout is closed for this time. Please send a quick text or call <a href="tel:9804575522" class="font-semibold text-amber-300">980-457-5522</a>.
+                </div>
+                <p id="card-hint" class="mt-5 text-sm text-white/50"></p>
+                <div id="square-wrap" class="hidden mt-5 space-y-4">
+                    <div id="square-card" class="min-h-24"></div>
+                    <p id="sandbox-note" class="hidden text-xs text-amber-200/80">Test mode is on. Use card 4111 1111 1111 1111, any future date, CVV 111, ZIP 28117. No real charge.</p>
+                    <button type="button" id="pay-btn" class="flex h-14 w-full items-center justify-center rounded-3xl bg-white text-lg font-semibold text-zinc-950 hover:bg-amber-300 disabled:opacity-40">Pay deposit</button>
+                    <p id="pay-error" class="text-sm text-red-400"></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="rates" class="max-w-screen-2xl mx-auto px-5 md:px-8 pb-24">
+    <div class="text-center mb-16">
+        <div class="inline text-xs font-semibold tracking-[3px] text-amber-400">TRANSPARENT LUXURY PRICING</div>
+        <h2 class="text-4xl md:text-6xl heading-serif tracking-tighter mt-3">Rates & Packages</h2>
+        <p class="mt-4 text-white/70 max-w-md mx-auto">No hidden fees. No mileage charges. Just pure elegance.</p>
+    </div>
+    <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 md:p-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-y-8 md:gap-y-6">
+            <div class="flex items-center gap-x-4">
+                <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-car text-zinc-950 text-4xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-semibold">GMC Yukon Denali XL</h4>
+                    <p class="text-white/60 text-sm md:text-base">Luxury SUV • Plush Leather • Climate Control</p>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="text-sm text-white/60">STANDARD HOURLY RATE</div>
+                <div class="text-5xl md:text-6xl font-bold">$120</div>
+                <div class="text-sm text-white/60">per hour • 2-hour minimum • No mileage fee</div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-10 mt-10">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center gap-x-2 bg-amber-900/40 text-amber-400 px-4 py-1 rounded-3xl text-xs font-semibold tracking-wider">
+                    <i class="fas fa-tags"></i>
+                    <span>EVENT PACKAGES • NO MILEAGE FEE</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="price-card bg-zinc-950 border border-white/10 rounded-3xl p-6 text-center">
+                    <div class="text-sm text-white/60">3-HOUR PACKAGE</div>
+                    <div class="text-4xl font-bold mt-2">$345</div>
+                    <div class="text-xs text-emerald-400 mt-1">Save 20%</div>
+                </div>
+                <div class="price-card bg-zinc-950 border border-white/10 rounded-3xl p-6 text-center">
+                    <div class="text-sm text-white/60">4-HOUR PACKAGE</div>
+                    <div class="text-4xl font-bold mt-2">$440</div>
+                    <div class="text-xs text-emerald-400 mt-1">Save 22%</div>
+                </div>
+                <div class="price-card bg-zinc-950 border border-white/10 rounded-3xl p-6 text-center">
+                    <div class="text-sm text-white/60">5-HOUR PACKAGE</div>
+                    <div class="text-4xl font-bold mt-2">$525</div>
+                    <div class="text-xs text-emerald-400 mt-1">Save 25%</div>
+                </div>
+                <div class="price-card bg-zinc-950 border border-white/10 rounded-3xl p-6 text-center">
+                    <div class="text-sm text-white/60">6-HOUR PACKAGE</div>
+                    <div class="text-4xl font-bold mt-2">$595</div>
+                    <div class="text-xs text-emerald-400 mt-1">Save 28%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center text-xs text-white/50 mt-8">Hourly and event trips stay on the quote form. Airport transfers book online above. All rates include professional chauffeur, fuel, and tolls. Gratuity not included.</p>
+</section>
+
+<section id="services" class="max-w-screen-2xl mx-auto px-5 md:px-8 py-24 bg-zinc-900">
+    <div class="text-center mb-16">
+        <div class="inline text-xs font-semibold tracking-[3px] text-amber-400">EXCEPTIONAL SERVICE</div>
+        <h2 class="text-4xl md:text-6xl heading-serif tracking-tighter mt-3">Curated Lake Norman Experiences</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="service-card bg-zinc-950 border border-white/10 rounded-3xl p-8 group">
+            <div class="w-14 h-14 bg-amber-900/40 text-amber-400 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-amber-400 group-hover:text-zinc-950 transition-all"><i class="fas fa-plane fa-2x"></i></div>
+            <h3 class="text-2xl font-semibold">Airport Transfers</h3>
+            <p class="mt-3 text-white/70">Private transfers from Lake Norman & Charlotte: CLT $120 · GSO $360 · RDU $580.</p>
+        </div>
+        <div class="service-card bg-zinc-950 border border-white/10 rounded-3xl p-8 group">
+            <div class="w-14 h-14 bg-amber-900/40 text-amber-400 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-amber-400 group-hover:text-zinc-950 transition-all"><i class="fas fa-heart fa-2x"></i></div>
+            <h3 class="text-2xl font-semibold">Weddings & Special Events</h3>
+            <p class="mt-3 text-white/70">Make your Lake Norman wedding or celebration unforgettable.</p>
+        </div>
+        <div class="service-card bg-zinc-950 border border-white/10 rounded-3xl p-8 group">
+            <div class="w-14 h-14 bg-amber-900/40 text-amber-400 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-amber-400 group-hover:text-zinc-950 transition-all"><i class="fas fa-briefcase fa-2x"></i></div>
+            <h3 class="text-2xl font-semibold">Corporate & Executive</h3>
+            <p class="mt-3 text-white/70">Discreet executive transport with WiFi and refreshments.</p>
+        </div>
+    </div>
+</section>
+
+<section id="fleet" class="max-w-screen-2xl mx-auto px-5 md:px-8 py-20">
+    <div class="text-center mb-12">
+        <div class="text-xs tracking-[3px] text-amber-400 font-semibold">THE LAKE NORMAN COLLECTION</div>
+        <h2 class="text-4xl md:text-6xl heading-serif tracking-tighter">Our Signature Fleet</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="limo-card bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden group">
+            <div class="h-56 relative overflow-hidden">
+                <div class="flex h-full transition-transform duration-700" id="fleet-gallery">
+                    <img src="gmc-yukon-denali-xl.jpg" alt="GMC Yukon Denali XL Exterior" class="w-full h-full object-cover flex-shrink-0">
+                    <img src="gmc-yukon-interior-front.jpg" alt="GMC Yukon Denali XL Interior Front" class="w-full h-full object-cover flex-shrink-0">
+                    <img src="gmc-yukon-interior-rear.jpg" alt="GMC Yukon Denali XL Rear Seats" class="w-full h-full object-cover flex-shrink-0">
+                    <img src="gmc-yukon-cargo.jpg" alt="GMC Yukon Denali XL Cargo Space" class="w-full h-full object-cover flex-shrink-0">
+                </div>
+                <div class="absolute top-4 right-4 px-3 py-1 bg-black/70 text-xs font-medium rounded-2xl flex items-center gap-x-1 z-10">
+                    <i class="fas fa-users text-amber-400"></i><span class="font-semibold">6-8</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h4 class="font-semibold text-xl">GMC Yukon Denali XL</h4>
+                <p class="text-white/60 text-sm">Our flagship luxury SUV</p>
+                <button onclick="selectVehicleAndBook('GMC Yukon Denali XL')"
+                        class="mt-6 w-full py-3 text-sm font-semibold border border-white/20 hover:bg-white hover:text-zinc-950 transition-all rounded-3xl">
+                    RESERVE THIS VEHICLE
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="quote" class="max-w-screen-2xl mx-auto px-5 md:px-8 py-20 bg-zinc-900">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+            <div class="inline text-xs font-semibold tracking-[3px] text-amber-400">GET STARTED</div>
+            <h2 class="text-4xl md:text-5xl heading-serif tracking-tighter mt-3">Request Your Free Quote</h2>
+            <p class="mt-3 text-white/60">Weddings, hourly charters, corporate, and lake tours. Airport rides book online in the section above.</p>
+        </div>
+        <form action="https://formspree.io/f/xqenoyza" method="POST" class="bg-zinc-950 border border-white/10 rounded-3xl p-10 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div><label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">FIRST NAME *</label><input type="text" name="first_name" required class="field"></div>
+                <div><label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">LAST NAME *</label><input type="text" name="last_name" required class="field"></div>
+            </div>
+            <div><label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">COMPANY (OPTIONAL)</label><input type="text" name="company" class="field" placeholder="Your company name"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div><label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">PHONE NUMBER *</label><input type="tel" name="phone" required class="field"></div>
+                <div><label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">EMAIL ADDRESS *</label><input type="email" name="email" required class="field"></div>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold tracking-wider text-white/70 mb-3">PREFERRED METHOD TO REACH YOU *</label>
+                <div class="flex flex-wrap gap-6">
+                    <label class="flex items-center gap-x-3 cursor-pointer"><input type="radio" name="preferred_contact" value="Phone" required class="accent-amber-400"><span class="text-white">Phone Call</span></label>
+                    <label class="flex items-center gap-x-3 cursor-pointer"><input type="radio" name="preferred_contact" value="Text" required class="accent-amber-400"><span class="text-white">Text Message</span></label>
+                    <label class="flex items-center gap-x-3 cursor-pointer"><input type="radio" name="preferred_contact" value="Email" required class="accent-amber-400"><span class="text-white">Email</span></label>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div><label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">PICKUP LOCATION *</label><input type="text" name="pickup_location" required placeholder="e.g., Mooresville, NC or Charlotte Airport" class="field"></div>
+                <div><label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">DROP-OFF / SERVICE</label><input type="text" name="dropoff_location" placeholder="e.g., Charlotte Airport or Lake Norman Tour" class="field"></div>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">TYPE OF SERVICE NEEDED *</label>
+                <select name="service_type" required class="field">
+                    <option value="">Please select...</option>
+                    <option value="Wedding or Special Event">Wedding or Special Event</option>
+                    <option value="Corporate / Executive">Corporate / Executive</option>
+                    <option value="Hourly Chauffeur Service">Hourly Chauffeur Service</option>
+                    <option value="Lake Norman Private Tour">Lake Norman Private Tour</option>
+                    <option value="Other">Other / Custom Request</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold tracking-wider text-white/70 mb-2">ADDITIONAL INFORMATION OR SPECIAL REQUESTS</label>
+                <textarea name="message" rows="4" placeholder="Any special requests, number of passengers, champagne, child seats, etc." class="field rounded-3xl resize-y"></textarea>
+            </div>
+            <button type="submit" class="w-full py-4 bg-gradient-to-r from-amber-300 to-yellow-500 hover:brightness-105 text-zinc-950 font-bold rounded-3xl text-lg flex items-center justify-center gap-x-3 transition-all">
+                <span>SEND MY INQUIRY</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</section>
+
+<footer id="about" class="bg-black border-t border-white/10 pt-16 pb-10">
+    <div class="max-w-screen-2xl mx-auto px-5 md:px-8 text-center">
+        <img src="logo.png" alt="Lake Norman Luxury Limousine & Tours" class="h-12 mx-auto mb-6">
+        <p class="text-white/60">Lake Norman’s and Charlotte’s premier luxury transportation provider.</p>
+        <div class="mt-6 text-sm text-white/50">© 2026 Lake Norman Luxury Limousine & Tours. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+const AIRPORTS = {
+  CLT: { label: "Charlotte Douglas (CLT)", total: 12000 },
+  GSO: { label: "Greensboro / Piedmont Triad (GSO)", total: 36000 },
+  RDU: { label: "Raleigh-Durham (RDU)", total: 58000 }
+};
+function money(cents) {
+  return (cents / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
+}
+function quoteFor(id) {
+  const total = AIRPORTS[id].total;
+  const deposit = Math.round(total / 2);
+  return { total, deposit, balance: total - deposit, label: AIRPORTS[id].label };
+}
+let squareCard = null;
+let squareConfig = null;
+let squareAttaching = false;
+let payChoice = "deposit";
+
+function setPayChoice(choice) {
+    payChoice = choice === "full" ? "full" : "deposit";
+    const dep = document.getElementById("pay-deposit");
+    const full = document.getElementById("pay-full");
+    if (payChoice === "full") {
+        full.className = "rounded-2xl border border-amber-400 bg-amber-400/10 p-4 text-left";
+        dep.className = "rounded-2xl border border-white/15 bg-zinc-900 p-4 text-left";
+    } else {
+        dep.className = "rounded-2xl border border-amber-400 bg-amber-400/10 p-4 text-left";
+        full.className = "rounded-2xl border border-white/15 bg-zinc-900 p-4 text-left";
+    }
+    refreshAirportForm();
+}
+
+function initializeWebsite() {
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) navbar.classList.add("nav-scrolled", "shadow-xl");
+        else navbar.classList.remove("nav-scrolled", "shadow-xl");
+    });
+    const mobileBtn = document.getElementById("mobile-menu-btn");
+    if (mobileBtn) {
+        mobileBtn.addEventListener("click", () => {
+            const menu = document.getElementById("mobile-menu");
+            if (menu) menu.classList.toggle("hidden");
+        });
+    }
+    const gallery = document.getElementById("fleet-gallery");
+    if (gallery) {
+        let i = 0;
+        setInterval(() => {
+            i = (i + 1) % 4;
+            gallery.style.transform = "translateX(-" + (i * 100) + "%)";
+        }, 4000);
+    }
+    const list = document.getElementById("airport-price-list");
+    if (list) {
+        list.innerHTML = Object.keys(AIRPORTS).map((id) => {
+            const q = quoteFor(id);
+            return '<li class="flex justify-between gap-4 border-b border-white/10 pb-3"><span>' + AIRPORTS[id].label + '</span><span class="font-semibold">' + money(q.total) + '<span class="block text-xs font-normal text-white/50">' + money(q.deposit) + ' deposit or ' + money(q.total) + ' in full</span></span></li>';
+        }).join("");
+    }
+    ["af-first","af-last","af-phone","af-email","af-pickup","af-airport","af-date","af-time"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener("input", refreshAirportForm);
+        if (el) el.addEventListener("change", refreshAirportForm);
+    });
+    document.getElementById("pay-btn").addEventListener("click", payAirport);
+    refreshAirportForm();
+}
+function showBookingModal() {
+    const modal = document.getElementById("booking-modal");
+    if (modal) { modal.classList.remove("hidden"); modal.classList.add("flex"); }
+}
+function hideBookingModal() {
+    const modal = document.getElementById("booking-modal");
+    if (modal) { modal.classList.add("hidden"); modal.classList.remove("flex"); }
+}
+function selectVehicleAndBook() { showBookingModal(); }
+function copyPhoneNumber() {
+    navigator.clipboard.writeText("9804575522").then(() => {
+        const toast = document.createElement("div");
+        toast.className = "fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-3xl flex items-center gap-x-3 shadow-2xl z-[90]";
+        toast.innerHTML = '<i class="fas fa-check-circle"></i><span>Phone number copied! Paste it into your phone app.</span>';
+        document.body.appendChild(toast);
+        setTimeout(() => { toast.style.transition = "all 0.4s"; toast.style.opacity = "0"; setTimeout(() => toast.remove(), 400); }, 3000);
+    });
+}
+function val(id) { return (document.getElementById(id).value || "").trim(); }
+function pickupIso() {
+    const date = val("af-date");
+    const time = val("af-time");
+    if (!date || !time) return "";
+    const local = new Date(date + "T" + time);
+    if (Number.isNaN(local.getTime())) return "";
+    return local.toISOString();
+}
+function tooSoon() {
+    const iso = pickupIso();
+    if (!iso) return false;
+    return Date.parse(iso) - Date.now() < 60 * 60 * 1000;
+}
+function detailsReady() {
+    return val("af-first") && val("af-last") && val("af-email").includes("@") && val("af-phone").length >= 7 && val("af-pickup").length >= 3 && pickupIso() && !tooSoon();
+}
+async function loadSquare() {
+    if (squareCard || squareAttaching) return squareCard;
+    squareAttaching = true;
+    try {
+        const res = await fetch("/.netlify/functions/square-config");
+        squareConfig = await res.json();
+        if (!squareConfig.applicationId) throw new Error("Square is not configured.");
+        await new Promise((resolve, reject) => {
+            if (window.Square) return resolve();
+            const s = document.createElement("script");
+            s.src = squareConfig.jsSrc;
+            s.onload = resolve;
+            s.onerror = () => reject(new Error("Could not load Square."));
+            document.head.appendChild(s);
+        });
+        const payments = window.Square.payments(squareConfig.applicationId, squareConfig.locationId);
+        squareCard = await payments.card();
+        await squareCard.attach("#square-card");
+        if (squareConfig.environment !== "production") {
+            document.getElementById("sandbox-note").classList.remove("hidden");
+        }
+        return squareCard;
+    } catch (err) {
+        document.getElementById("pay-error").textContent = (err && err.message) || "Card form unavailable. Call 980-457-5522.";
+        squareAttaching = false;
+        throw err;
+    } finally {
+        squareAttaching = false;
+    }
+}
+async function refreshAirportForm() {
+    const q = quoteFor(val("af-airport") || "CLT");
+    const paid = payChoice === "full" ? q.total : q.deposit;
+    document.getElementById("pay-deposit-amt").textContent = money(q.deposit);
+    document.getElementById("pay-full-amt").textContent = money(q.total);
+    document.getElementById("too-soon").classList.toggle("hidden", !tooSoon());
+    const hint = document.getElementById("card-hint");
+    const wrap = document.getElementById("square-wrap");
+    const btn = document.getElementById("pay-btn");
+    btn.textContent = payChoice === "full" ? ("Pay " + money(paid) + " in full") : ("Pay " + money(paid) + " deposit");
+    if (tooSoon()) {
+        wrap.classList.add("hidden");
+        hint.textContent = "";
+        return;
+    }
+    if (!detailsReady()) {
+        wrap.classList.add("hidden");
+        hint.textContent = "Fill the required trip details above and the card form will appear.";
+        return;
+    }
+    hint.textContent = "";
+    wrap.classList.remove("hidden");
+    try { await loadSquare(); } catch (e) {}
+}
+async function payAirport() {
+    const err = document.getElementById("pay-error");
+    const btn = document.getElementById("pay-btn");
+    err.textContent = "";
+    if (!squareCard) { err.textContent = "Card form is still loading."; return; }
+    const q = quoteFor(val("af-airport"));
+    const paid = payChoice === "full" ? q.total : q.deposit;
+    btn.disabled = true;
+    btn.textContent = "Processing…";
+    try {
+        const tokenResult = await squareCard.tokenize({
+            amount: (paid / 100).toFixed(2),
+            currencyCode: "USD",
+            intent: "CHARGE",
+            billingContact: {
+                givenName: val("af-first"),
+                familyName: val("af-last"),
+                email: val("af-email"),
+                phone: val("af-phone"),
+                countryCode: "US"
+            }
+        });
+        if (tokenResult.status !== "OK" || !tokenResult.token) {
+            throw new Error((tokenResult.errors && tokenResult.errors[0] && tokenResult.errors[0].message) || "Check the card details and try again.");
+        }
+        const res = await fetch("/.netlify/functions/create-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                sourceId: tokenResult.token,
+                idempotencyKey: (crypto.randomUUID && crypto.randomUUID()) || String(Date.now()),
+                pickupAt: pickupIso(),
+                firstName: val("af-first"),
+                lastName: val("af-last"),
+                email: val("af-email"),
+                phone: val("af-phone"),
+                pickup: val("af-pickup"),
+                airport: val("af-airport"),
+                direction: val("af-direction"),
+                date: val("af-date"),
+                time: val("af-time"),
+                passengers: Number(val("af-pax") || 1),
+                payChoice: payChoice,
+                flightNumber: val("af-flight"),
+                notes: val("af-notes")
+            })
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.message || "Payment failed.");
+        document.getElementById("airport-fields").classList.add("hidden");
+        document.getElementById("airport-success").classList.remove("hidden");
+        document.getElementById("airport-success-kicker").textContent =
+            data.payChoice === "full" ? "PAID IN FULL" : "DEPOSIT RECEIVED";
+        document.getElementById("airport-success-code").textContent = data.bookingCode;
+        document.getElementById("airport-success-copy").textContent =
+            data.payChoice === "full"
+                ? ("Booking " + data.bookingCode + " to " + data.airportLabel + ". We charged " + money(data.paidCents) + " in full. Nothing is due to your chauffeur.")
+                : ("Booking " + data.bookingCode + " to " + data.airportLabel + ". We charged " + money(data.paidCents) + " (50% of " + money(data.totalCents) + "). The remaining " + money(data.balanceCents) + " is due to your chauffeur.");
+    } catch (e) {
+        err.textContent = e.message || "Payment failed.";
+        btn.disabled = false;
+        btn.textContent = payChoice === "full" ? ("Pay " + money(paid) + " in full") : ("Pay " + money(paid) + " deposit");
+    }
+}
+document.addEventListener("DOMContentLoaded", function() {
+    const quoteForm = document.querySelector("#quote form");
+    if (quoteForm) {
+        quoteForm.addEventListener("submit", function() {
+            setTimeout(() => {
+                const toast = document.createElement("div");
+                toast.className = "fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-4 rounded-3xl flex items-center shadow-2xl z-[80]";
+                toast.innerHTML = '<div class="flex items-center gap-x-4"><i class="fas fa-check-circle text-2xl"></i><div><div class="font-semibold">Thank you! Your inquiry has been sent.</div><div class="text-xs opacity-90">We will contact you shortly.</div></div></div>';
+                document.body.appendChild(toast);
+                setTimeout(() => { toast.style.transition = "all 0.4s"; toast.style.opacity = "0"; setTimeout(() => toast.remove(), 400); }, 4500);
+            }, 800);
+        });
+    }
+});
+window.onload = initializeWebsite;
+</script>
+<div id="booking-modal" onclick="if(event.target.id === 'booking-modal') hideBookingModal()"
+     class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] items-center justify-center">
+    <div onclick="event.stopImmediatePropagation()"
+         class="bg-zinc-900 rounded-3xl max-w-md w-full mx-4 p-8 relative">
+        <button onclick="hideBookingModal()" class="absolute top-6 right-6 text-white/60 hover:text-white">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-x-2 bg-amber-400 text-zinc-950 px-5 py-2 rounded-3xl text-sm font-bold mb-4">
+                <i class="fas fa-gem"></i>
+                INSTANT RESERVATION
+            </div>
+            <h3 class="text-3xl heading-serif tracking-tighter">Ready to Roll?</h3>
+            <p class="text-white/70 mt-2">Airport flats: CLT $120, Greensboro $360, RDU $580. Everything else goes through the quote form.</p>
+        </div>
+        <button onclick="hideBookingModal(); document.getElementById('airport').scrollIntoView({ behavior: 'smooth' })"
+                class="w-full py-5 bg-white text-zinc-950 text-center text-xl font-semibold rounded-3xl mb-4 hover:bg-amber-300">
+            Book airport transfer
+        </button>
+        <a href="tel:9804575522"
+           class="block w-full py-5 border border-white/30 text-center text-lg font-medium rounded-3xl mb-4 hover:bg-white/5 flex items-center justify-center gap-x-3">
+            <i class="fas fa-phone"></i>
+            <span>CALL 980-457-5522</span>
+        </a>
+        <button onclick="hideBookingModal(); document.getElementById('quote').scrollIntoView({ behavior: 'smooth' })"
+                class="w-full py-5 border border-white/30 hover:bg-white/5 rounded-3xl text-lg font-medium">
+            Fill Out the Quote Form Below
+        </button>
+        <p class="text-xs text-white/40 text-center mt-8">24/7 • Real-time flight tracking • No mileage fees</p>
+    </div>
+</div>
+</body>
+</html>
