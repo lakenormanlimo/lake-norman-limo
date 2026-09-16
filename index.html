@@ -601,6 +601,8 @@ async function payAirport() {
             amount: (paid / 100).toFixed(2),
             currencyCode: "USD",
             intent: "CHARGE",
+                        customerInitiated: true,
+            sellerKeyedIn: false,
             billingContact: {
                 givenName: val("af-first"),
                 familyName: val("af-last"),
